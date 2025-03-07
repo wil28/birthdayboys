@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Selamat Ulang Tahun!</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #b3e5fc;
+            padding: 50px;
+            margin: 0;
+            overflow: hidden;
+        }
+        .container {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            max-width: 90%;
+            margin: auto;
+            position: relative;
+            z-index: 10;
+        }
+        h1 {
+            color: #0288d1;
+        }
+        p {
+            font-size: 18px;
+            color: #555;
+        }
+        .btn {
+            display: inline-block;
+            background: #0288d1;
+            color: white;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            margin-top: 10px;
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+        .btn:hover {
+            transform: scale(1.1);
+        }
+        #surprise {
+            display: none;
+            margin-top: 20px;
+            opacity: 0;
+            transition: opacity 1s ease-in;
+        }
+        .hidden {
+            display: none;
+        }
+        .photo {
+            animation: zoomIn 1s ease-in-out;
+        }
+        @keyframes zoomIn {
+            from { transform: scale(0.5); opacity: 0; }
+            to { transform: scale(1); opacity: 1; }
+        }
+        .balloon {
+            position: absolute;
+            width: 50px;
+            height: 70px;
+            background: red;
+            border-radius: 50% 50% 50% 50%;
+            opacity: 0.7;
+            animation: floatBalloon 15s linear infinite;
+        }
+        @keyframes floatBalloon {
+            from { transform: translateY(100vh); }
+            to { transform: translateY(-100vh); }
+        }
+    </style>
+</head>
+<body>
+    <script>
+        function createBalloons() {
+            for (let i = 0; i < 20; i++) {
+                let balloon = document.createElement("div");
+                balloon.classList.add("balloon");
+                balloon.style.left = Math.random() * 100 + "vw";
+                balloon.style.backgroundColor = `hsl(${Math.random() * 360}, 100%, 85%)`;
+                balloon.style.animationDuration = (Math.random() * 7 + 7) + "s";
+                document.body.appendChild(balloon);
+                setTimeout(() => { balloon.remove(); }, 15000);
+            }
+        }
+        createBalloons();
+        setInterval(createBalloons, 5000);
+    </script>
+    <div class="container">
+        <h1>Barakallah fii umrik, Baby Bugssss! 🐞</h1>
+        <p>Semoga harimu menyenangkan, penuh berkah, dan kebahagiaan! 🎉🎂</p>
+        <button class="btn" onclick="showSurprise()">Aku ada kado nih!</button>
+        
+        <div id="surprise">
+            <img src="Photo on 25-11-24 at 15.56.jpg" alt="Sobat Literasi" width="300" class="photo" style="border-radius: 10px; margin-top: 10px;">
+            <p>Terima kasih sudah menjadi temanku hampir 10 tahun! 😊</p>
+            <p>Tunggu satu tahun lagi yaa.. katanya pertemanan lebih dari 10 tahun bisa jadi teman selamanya!!!</p>
+            <button class="btn" onclick="toggleLetter()">Private message special for you</button>
+            
+            <div id="letter" class="hidden" style="display: none;">
+                <p style="font-style: italic;">Dear om Daus,</p>
+                <p>Semoga tahun ini makin bahagia dan penuh keberkahan. Bersyukur bisa kenal om daus dan banyak belajar dari anda. 
+                    ku tau om daus sibuk, tapi jangan lupa istirahat!. Semoga segera diberi pelabuhan rezeki sesuai dengan yang diingkan dan yang terbaik dari Allah. 
+                    Semoga semua yang dicita-citakan sejalan dengan Ridha Nya dan segera dikabulkan. Tetap istiqomah jadi orang baik ya!
+                    Makin rajin ibadahnya, jangan bosen dengerin cerita akuuuu. ayo kita nikmatin hidup ini bareng-bareng! 🎂🎉</p>
+                <p style="font-weight: bold;">your cutest friend willy😊</p>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        function showSurprise() {
+            var surprise = document.getElementById("surprise");
+            surprise.style.display = "block";
+            setTimeout(() => { surprise.style.opacity = 1; }, 100);
+        }
+        
+        function toggleLetter() {
+            var letter = document.getElementById("letter");
+            if (letter.style.display === "none" || letter.style.display === "") {
+                letter.style.display = "block";
+            } else {
+                letter.style.display = "none";
+            }
+        }
+    </script>
+</body>
+</html>
